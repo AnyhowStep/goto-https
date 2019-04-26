@@ -1,0 +1,27 @@
+{
+  "name": "goto-https",
+  "version": "1.0.0",
+  "description": "An `express` middleware that redirects requests to `https://`, if necessary.",
+  "main": "dist/src/main/index.js",
+  "types": "dist/src/main/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -r ./dist || true",
+    "build": "tsc -d --diagnostics",
+    "rebuild": "(npm run clean) && (npm run build)",
+    "test-run-time": "ts-node -P ./test/run-time/tsconfig.json ./test/run-time/runner.ts"
+  },
+  "author": "Justin Ng",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnyhowStep/goto-https"
+  },
+  "devDependencies": {
+    "@types/node": "^11.13.7",
+    "@types/tape": "^4.2.33",
+    "tape": "^4.10.1",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.3.4000"
+  }
+}

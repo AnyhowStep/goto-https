@@ -1,0 +1,9 @@
+{
+    "extends" : "./tsconfig-non-composite-base.json",
+    "compilerOptions": {
+        "outDir": "./dist"
+    },
+    "include" : [
+        "./src/**/*"
+    ]
+}
