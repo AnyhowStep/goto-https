@@ -1,9 +1,9 @@
 {
   "name": "goto-https",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An `express` middleware that redirects requests to `https://`, if necessary.",
-  "main": "dist/src/main/index.js",
-  "types": "dist/src/main/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -r ./dist || true",
