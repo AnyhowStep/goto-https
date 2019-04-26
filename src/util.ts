@@ -21,7 +21,7 @@ export interface ParsedHost {
 export function isValidHost (host : string|(string[])|undefined) : host is string {
     return (
         (typeof host == "string") &&
-        host != ""
+        host.trim() != ""
     );
 }
 
@@ -41,13 +41,14 @@ export function tryParseHost (req : Pick<Req, "app"|"headers"|"connection">) : s
         return undefined;
     }
 
-    return host;
+    return host.trim();
 }
 
 /**
     Extracts the hostname and port from a host.
 */
 export function parseHost (host : string) : ParsedHost {
+    host = host.trim();
     //IPv6 literal support
     const offset = (host[0] == "[") ?
         host.indexOf("]") + 1 :

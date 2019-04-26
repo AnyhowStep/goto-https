@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 */
 function isValidHost(host) {
     return ((typeof host == "string") &&
-        host != "");
+        host.trim() != "");
 }
 exports.isValidHost = isValidHost;
 /**
@@ -23,13 +23,14 @@ function tryParseHost(req) {
     if (!isValidHost(host)) {
         return undefined;
     }
-    return host;
+    return host.trim();
 }
 exports.tryParseHost = tryParseHost;
 /**
     Extracts the hostname and port from a host.
 */
 function parseHost(host) {
+    host = host.trim();
     //IPv6 literal support
     const offset = (host[0] == "[") ?
         host.indexOf("]") + 1 :

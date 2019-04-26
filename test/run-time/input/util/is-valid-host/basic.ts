@@ -3,6 +3,8 @@ import {isValidHost} from "../../../../../dist";
 
 tape(__filename, (t) => {
     t.false(isValidHost(""));
+    t.false(isValidHost("  "));
+    t.false(isValidHost(" \n \t "));
     t.true(isValidHost("non-empty-string"));
     t.true(isValidHost("localhost"));
     t.true(isValidHost("example.com"));

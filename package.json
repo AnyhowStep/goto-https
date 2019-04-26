@@ -1,6 +1,6 @@
 {
   "name": "goto-https",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An `express` middleware that redirects requests to `https://`, if necessary.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

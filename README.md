@@ -46,3 +46,32 @@ See the `test/run-time/input` folder.
 ```
 npm run test-run-time
 ```
+
+### Implementation Details
+
++ `req.headers["host"]` and `req.headers["x-forwarded-host"]` may be used,
+  depending on express' `trust proxy fn`.
+
++ The redirect URL is derived by `"https://" + parsedHost.host + req.originalUrl`.
+
++ If an invalid host is found, the middleware responds with status code `404`.
+
++ The default redirect status code is `302`.
+
++ A valid host is a `string` that is non-empty and not all whitespace.
+
+### `hostDomainWhitelist`
+
++ Whitelisting `domain.com` will also whitelist all domains that end with the string `domain.com`.
+  e.g. `subdomain1.domain.com`, `subdomain2.domain.com`, etc.
+
++ To whitelist specific subdomains, add each subdomain to the array individually.
+
+  ```ts
+  const hostDomainWhitelist = [
+      `subdomain1.domain.com`,
+      `subdomain4.domain.com`,
+  ];
+  //subdomain2.domain.com and subdomain3.domain.com are not whitelisted.
+  //domain.com is also not whitelisted.
+  ```
